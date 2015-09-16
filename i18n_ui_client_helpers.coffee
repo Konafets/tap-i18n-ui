@@ -3,12 +3,12 @@ UI.registerHelper 'i18n_enabled', -> TAPi18n.conf?
 
 # transform getLanguages into ordered array
 UI.registerHelper 'i18n_sortedLanguages' , ->
-  langauges = TAPi18n.getLanguages()
+  languages = TAPi18n.getLanguages()
   # map language tag into the object
-  for key,val of langauges
-    langauges[key].tag = key
+  for key,val of languages
+    languages[key].tag = key
   # return array sorted alphabetically by tag
-  _.sortBy _.values langauges, (language) -> language.tag
+  _.sortBy _.values languages, (language) -> language.tag
 
 # check if language option is current language
 UI.registerHelper 'i18n_isCurrentLanguage' , (tag) -> tag is TAPi18n.getLanguage()
